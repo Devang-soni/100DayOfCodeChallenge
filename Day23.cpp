@@ -1,47 +1,26 @@
-//623. Add One Row to Tree
+//1175. Prime Arrangements
 class Solution {
 public:
-    
-    void insert(TreeNode* &node, int val, int d, int curDepth) {
+    bool isPrime(int x) {
+        if(x <= 3) return x > 1;
+        if(x % 2 == 0) return false;
         
-        if(node == NULL)                        return;
-        
-        if(curDepth == d - 1) {
-            
-            // Here, we need to insert the node having value val
-            
-            // For left node
-            TreeNode* temp = node->left;
-            node->left = new TreeNode(val);
-            node->left->left = temp;
-            
-            // For right node
-            temp = node->right;
-            node->right = new TreeNode(val);
-            node->right->right = temp;
+        for(int i = 3; i <= sqrt(x); i += 2) {
+            if(x % i == 0) return false;
         }
-        
-        else {
-            
-            insert(node->left, val, d, curDepth + 1);
-            insert(node->right, val, d, curDepth + 1);
-        }
-        
-        return;
+        return true;
     }
     
-    TreeNode* addOneRow(TreeNode* root, int val, int d) {
-    
-        if(d == 1) {
-            
-            TreeNode* node = new TreeNode(val);
-            node->left = root;
-            
-            return node;
-        }
-        
-        insert(root, val, d, 1);
-        return root;
+    int fact(int x) {
+        if(x <= 1) return 1;
+        return ((long long)(x) * fact(x - 1)) % 1000000007;
     }
     
+    int numPrimeArrangements(int n) {
+        int c = 0;
+        for(int i = 1; i <= n; ++i) {
+            c += isPrime(i);
+        }
+        return ((long long)(fact(n - c)) * fact(c)) % 1000000007;
+    }
 };
