@@ -3,7 +3,7 @@
 
 // Return the sum of the three integers.
 
-// You may assume that each input would have exactly one solution.
+// You may assume that each input would have exactly one solution
 
 class Solution {
 public:
