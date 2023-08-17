@@ -1,5 +1,4 @@
-//1991. Find the Middle Index in Array
-
+//1991. Find the Middle Index in Array//
 class Solution {
 public:
     int findMiddleIndex(vector<int>& nums)   {
