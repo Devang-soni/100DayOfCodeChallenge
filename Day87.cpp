@@ -1,5 +1,4 @@
 //2544. Alternating Digit Sum
-
 class Solution {
 public:
     int alternateDigitSum(int n){
